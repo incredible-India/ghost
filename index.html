@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crying</title>
+    <style>
+        body{
+         
+            box-sizing: border-box;
+
+            /* position: relative; */
+            /* overflow: hidden; */
+
+        }
+section{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    min-height: 100vh;
+    overflow: hidden;
+    background : #130e23;
+}
+ .text{
+            position: relative;
+            text-align: center;
+          
+
+            color: #00cefe;
+         
+        }
+
+        section .text span {
+            position: relative;
+            display: inline-block;
+        }
+div{
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+        img{
+            /* background-image: url(./insidious-netflix-horror-1560784920.jpg);
+            background-size: cover; */
+            /* min-width: n; */
+            width: 100%;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    
+<section class="text">
+    <p>The  Curse of  A Weeping Woman....</p><br>
+  
+</section>
+
+<div class="img" style="display: none;">
+ <img src="./insidious-netflix-horror-1560784920.jpg" alt="">
+</div>
+
+
+<audio src="./Girl Crying Sound Effect (online-audio-converter.com).mp3"></audio>
+</body>
+<script src="./anime.min.js"></script>
+<script>
+    let audio = document.getElementsByTagName('audio')[0]
+    let text = document.getElementsByClassName('text')[0];
+    text.innerHTML = text.textContent.replace(/\S/g,'<span>$&</span>');
+
+    const animation =anime.timeline({
+        targets : ".text span"
+        ,easing : "easeInOutExpo"
+        ,loop :true
+    })
+
+    animation.add({
+        rotate : function(){
+            return anime.random(-360,360)
+        },   translateX : function(){
+            return anime.random(-500,500)
+        }
+
+        ,   translateY : function(){
+            return anime.random(-500,500)
+        },
+        duration : 5000,
+        delay : anime.stagger(20),
+    })
+
+    setTimeout(() => {
+        text.style.display ="none"
+        document.getElementsByTagName('div')[0].style.display ="block"
+    
+    }, 5000);
+audio.play();
+    
+</script>
+</html>
