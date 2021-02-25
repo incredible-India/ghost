@@ -63,7 +63,11 @@ div{
 </div>
 
 
-<audio src="./Girl Crying Sound Effect (online-audio-converter.com).mp3"></audio>
+<audio id="myAudio" preload="auto"  autoplay>
+
+    <source src="./Girl Crying Sound Effect (online-audio-converter.com).mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
 </body>
 <script src="./anime.min.js"></script>
 <script>
@@ -96,7 +100,7 @@ div{
         document.getElementsByTagName('div')[0].style.display ="block"
     
     }, 5000);
-audio.play();
+
     
 </script>
 </html>
